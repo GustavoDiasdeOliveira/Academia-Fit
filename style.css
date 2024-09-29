@@ -1,0 +1,831 @@
+:root {
+    --color-light-50: #f8faf6;
+    --color-dark-50: #797984;
+    --color-dark-100: #312d37;
+    --color-dark-900: #000;
+    --color-blue-50: #3b82f6;
+    --color-blue-100: #2563eb;
+    --color-blue-200: #1d4ed8;
+    --color-red-50: #ef4444;
+    --color-red-100: #dc2626;
+    --color-red-200: #b91c1c;
+    --color-red-darker-100: #6D0707;
+    --color-red-darker-200: #82090D;
+    --color-green-light-50: #00ff08;
+    --color-green-light-100: #00b205;
+    --color-green-light-200: #007f04;
+    --color-green-50: #00b86a;
+    --color-green-100: #006e3f;
+    --color-green-200: #003f21;
+    --color-purple-50: #7c3aed;
+    --color-purple-100: #a855f7;
+    --color-purple-200: #bf46ef;
+    --color-gradient: linear-gradient(90deg, var(--color-green-50), var(--color-green-100), var(--color-green-200));
+}
+
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600&display=swap");
+
+/*Configuração Geral*/
+*{
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+/*Fim configuração Geral*/
+
+/*Configuração HTML*/
+html{
+    font-size: 63.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: #000;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: rgb(5, 238, 21);
+}
+/*Fim configuração HTML*/
+
+/*Configurações do site*/
+body{
+    background: #000000;
+}
+
+.hr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10000;
+    color: #05ee15;
+    margin-top: 62px;
+    border: 0.5px solid
+}
+
+
+section {
+    padding: 5rem 9%; /* Adiciona espaçamento interno na seção */
+}
+
+.heading {
+    text-align: center; /* Centraliza o texto */
+    margin-bottom: 3rem; /* Espaço abaixo do cabeçalho */
+    position: relative; /* Permite o posicionamento absoluto dos elementos filhos */
+}
+
+.heading::before {
+    content: ''; /* Cria um elemento fictício para a linha */
+    position: absolute; /* Posiciona a linha de forma absoluta */
+    top: 50%; /* Centraliza verticalmente */
+    left: 0; /* Alinha à esquerda */
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    height: .1rem; /* Altura da linha */
+    width: 100%; /* Largura total */
+    background: #aaa; /* Cor da linha */
+    z-index: -1; /* Coloca a linha atrás do cabeçalho */
+}
+
+.heading span {
+    font-size: 3rem; /* Tamanho da fonte do texto */
+    color: rgb(5, 238, 21); /* Cor do texto */
+    background: #000; /* Cor de fundo */
+    padding: .5rem 1.5rem; /* Espaçamento interno do texto */
+    border: 0.1rem solid #aaa; /* Borda ao redor do texto */
+    border-radius: .5rem; /* Bordas arredondadas */
+}
+
+/* Configuração dos Botões */
+.btn {
+    margin-top: 1rem; /* Espaço acima do botão */
+    display: inline-block; /* Exibe como bloco inline */
+    padding: 1rem 2.8rem; /* Espaçamento interno do botão */
+    padding-right: 3rem; /* Espaço à direita do botão */
+    background: linear-gradient(130deg, rgb(5, 238, 21) 93%, transparent 90%); /* Gradiente de fundo */
+    color: #fff; /* Cor do texto do botão */
+    cursor: pointer; /* Cursor pointer ao passar o mouse */
+    font-size: 1.7rem; /* Tamanho da fonte */
+}
+
+.btn:hover {
+    transform: scale(1.1); /* Aumenta o tamanho do botão ao passar o mouse */
+}
+
+.header {
+    position: fixed; /* Fixa o cabeçalho no topo */
+    top: 0; /* Alinha ao topo */
+    left: 0; /* Alinha à esquerda */
+    right: 0; /* Alinha à direita */
+    display: flex; /* Usando flexbox para layout */
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: space-between; /* Espaça os itens */
+    padding: 5px 9%; /* Espaçamento interno do cabeçalho */
+    z-index: 10000; /* Camada acima de outros elementos */
+    background: #000; /* Cor de fundo do cabeçalho */
+}
+
+.header span {
+    color: #05ee15; /* Cor do texto do span no cabeçalho */
+}
+
+.header .logo {
+    display: flex;
+    align-items: center; /* Alinha verticalmente o conteúdo */
+    font-weight: bolder; /* Aumenta a espessura da fonte */
+    color: #fff; /* Cor do texto do logo */
+    font-size: 3rem; /* Tamanho da fonte do logo */
+}
+
+.header .logo img {
+    width: 45px;
+    margin-right: 10px; /* Adiciona espaço entre a imagem e o texto */
+    animation: coracao 1s ease infinite alternate; /*Animação coração logo*/
+}
+
+
+@keyframes coracao {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: scale(1.20);
+    }
+}
+
+
+.header .navbar a {
+    display: inline-block; /* Exibe links como bloco inline */
+    padding: 1.5rem 2rem; /* Espaçamento interno dos links */
+    font-size: 1.7rem; /* Tamanho da fonte dos links */
+    font-weight: 800; /* Peso da fonte */
+    color: #585555; /* Cor do texto dos links */
+}
+
+.header .navbar a:hover {
+    color: #fff; /* Cor do texto ao passar o mouse */
+    background: #05ee15; /* Cor de fundo ao passar o mouse */
+}
+
+#menu-btn {
+    font-size: 3rem; /* Tamanho do botão de menu */
+    color: #fff; /* Cor do botão de menu */
+    cursor: pointer; /* Cursor pointer ao passar o mouse */
+    display: none; /* Oculta o botão de menu por padrão */
+}
+
+.home {
+    padding: 0; /* Remove o preenchimento da seção home */
+    margin-top: 5rem; /* Adiciona margem superior */
+}
+
+.home .slide {
+    min-height: 90vh; /* Altura mínima da seção de slide */
+    background-size: cover !important; /* Cobre o fundo */
+    background-position: center !important; /* Centraliza a imagem de fundo */
+    padding: 2rem 9%; /* Espaçamento interno do slide */
+    display: flex; /* Usa flexbox para layout */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.home .slide .content {
+    width: 60rem; /* Largura fixa para o conteúdo do slide */
+}
+
+.home .slide .content span {
+    font-size: 2rem; /* Tamanho da fonte do span */
+    color: #05ee15; /* Cor do texto do span */
+    display: block; /* Exibe como bloco */
+}
+
+
+#text-digital {
+    font-size: 20px;
+    font-family: monospace;
+    white-space: nowrap;
+    overflow: hidden; /* Esconde o texto que não está visível */
+    border-right: 4px solid #05ee15; /* Cria o efeito de cursor */
+    width: 23ch; /* Largura do texto */
+    animation: typing 3s steps(30, end) infinite, blink-caret 0.75s step-end infinite; /* Define as animações */
+}
+
+@keyframes typing {
+    from {
+        width: 0; /* Começa com largura 0 */
+    }
+    to {
+        width: 21ch; /* Expande até a largura total do texto */
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-right-color: transparent; /* O cursor começa invisível */
+    }
+    50% {
+        border-right-color: #05ee15; /* O cursor se torna visível */
+    }
+}
+
+
+.home .slide .content h3 {
+    font-size: 5rem; /* Tamanho da fonte do título */
+    color: #fff; /* Cor do título */
+    padding: 1rem 0; /* Espaçamento acima e abaixo do título */
+}
+
+/* Configuração do swiper para criar as bolinhas */
+.swiper-pagination-bullet {
+    height: 2rem; /* Altura da bolinha */
+    width: 2rem; /* Largura da bolinha */
+    background: #fff; /* Cor da bolinha */
+    border-radius: 0; /* Borda da bolinha sem arredondamento */
+}
+
+.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #05ee15; /* Cor da bolinha ativa */
+}
+
+.about {
+    display: flex; /* Usa flexbox para layout */
+    align-items: center; /* Centraliza verticalmente */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha seguinte */
+    gap: 8rem; /* Espaço entre os itens */
+}
+
+.about .image {
+    flex: 1 1 42rem; /* Tamanho flexível da imagem */
+    position: relative; /* Para posicionar os pseudo-elementos */
+}
+
+.about .image::before,
+.about .image::after {
+    content: ''; /* Cria elementos fictícios para o efeito de fundo */
+    position: absolute; /* Posiciona os elementos de forma absoluta */
+    z-index: -1; /* Coloca atrás da imagem */
+    background: #05ee15; /* Cor de fundo dos elementos */
+    height: 15rem; /* Altura dos elementos */
+    width: 15rem; /* Largura dos elementos */
+}
+
+.about .image::before {
+    top: 0; /* Alinha ao topo */
+    left: 0; /* Alinha à esquerda */
+}
+
+.about .image::after {
+    bottom: 0; /* Alinha na parte inferior */
+    right: 0; /* Alinha à direita */
+}
+
+.about .image img {
+    width: 100%; /* Imagem ocupa 100% do espaço disponível */
+    padding: 2rem; /* Espaçamento interno da imagem */
+}
+
+.about .content {
+    flex: 1 1 42rem; /* Tamanho flexível do conteúdo */
+}
+
+.about .content span {
+    font-size: 2rem; /* Tamanho da fonte do span */
+    color: #05ee15; /* Cor do texto do span */
+}
+
+.about .content .title {
+    font-size: 4rem; /* Tamanho da fonte do título */
+    color: #fff; /* Cor do título */
+    margin-top: .5rem; /* Margem acima do título */
+}
+
+.about .content p {
+    font-size: 1.5rem; /* Tamanho da fonte do parágrafo */
+    color: #aaa; /* Cor do parágrafo */
+    padding: 1rem 0; /* Espaçamento acima e abaixo do parágrafo */
+    line-height: 2; /* Altura da linha do texto */
+}
+
+.about .content .box-container {
+    display: flex; /* Usa flexbox para layout */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha seguinte */
+    gap: 2rem; /* Espaço entre os boxes */
+    margin-top: 1rem; /* Margem acima do container de boxes */
+}
+
+.about .content .box-container .box {
+    flex: 1 1 20rem; /* Tamanho flexível para cada box */
+}
+
+.about .content .box-container .box h3 {
+    font-size: 2rem; /* Tamanho da fonte do título do box */
+    color: #fff; /* Cor do título do box */
+}
+
+.about .content .box-container .box h3 i {
+    padding-right: 1.5rem; /* Espaçamento à direita do ícone */
+    color: #05ee15; /* Cor do ícone */
+}
+
+
+.features .box-container {
+    display: grid; /* Usa grid para layout */
+    /* Cria colunas responsivas, ajustando automaticamente a quantidade 
+       de colunas para caber no espaço disponível, com tamanho mínimo de 32rem */
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+    gap: 1.5rem; /* Espaçamento entre as caixas */
+}
+
+.features .box-container .box {
+    background: #111; /* Cor de fundo das caixas */
+}
+
+.features .box-container .box-second {
+    display: flex; /* Usa flexbox para layout */
+    flex-flow: column-reverse; /* Inverte a ordem dos itens na coluna */
+}
+
+.features .box-container .box:hover .image img {
+    transform: scale(1.1); /* Aumenta a imagem ao passar o mouse */
+}
+
+.features .box-container .box .image {
+    height: 30rem; /* Altura da imagem */
+    width: 100%; /* Largura da imagem */
+    overflow: hidden; /* Oculta parte da imagem que excede a caixa */
+}
+
+.features .box-container .box .image img {
+    height: 100%; /* Imagem ocupa 100% da altura */
+    width: 100%; /* Imagem ocupa 100% da largura */
+    /* Mantém a proporção da imagem e preenche a caixa */
+    object-fit: cover; 
+}
+
+.features .box-container .box .content {
+    padding: 2rem; /* Preenchimento interno do conteúdo */
+    text-align: center; /* Centraliza o texto */
+}
+
+.features .box-container .box .content img {
+    height: 9rem; /* Altura da imagem do conteúdo */
+    margin-bottom: 1rem; /* Margem abaixo da imagem */
+    filter: invert(1); /* Inverte as cores da imagem */
+}
+
+.features .box-container .box .content h3 {
+    font-size: 2rem; /* Tamanho da fonte do título */
+    color: #05ee15; /* Cor do título */
+}
+
+.features .box-container .box .content p {
+    line-height: 2; /* Altura da linha do parágrafo */
+    font-size: 1.5rem; /* Tamanho da fonte do parágrafo */
+    color: #aaa; /* Cor do texto do parágrafo */
+    padding: 1rem 0; /* Espaçamento acima e abaixo do parágrafo */
+}
+
+/* Configuração dos Preços */
+.pricing {
+    display: grid; /* Usa grid para layout */
+    grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr)); /* Colunas responsivas */
+    gap: 1.5rem; /* Espaçamento entre as informações de preços */
+}
+
+.pricing .information span {
+    font-size: 2rem; /* Tamanho da fonte do span */
+    color: #05ee15; /* Cor do texto do span */
+}
+
+.pricing .information h3 {
+    font-size: 4rem; /* Tamanho da fonte do título de preços */
+    padding-top: .5rem; /* Margem superior do título */
+    color: #fff; /* Cor do título */
+}
+
+.pricing .information p {
+    line-height: 2; /* Altura da linha do parágrafo */
+    padding: 1rem 0; /* Espaçamento acima e abaixo do parágrafo */
+    font-size: 1.4rem; /* Tamanho da fonte do parágrafo */
+    color: #aaa; /* Cor do texto do parágrafo */
+}
+
+.pricing .information p i {
+    padding-right: 1rem; /* Espaçamento à direita do ícone */
+    color: #05ee15; /* Cor do ícone */
+}
+
+.pricing .plan {
+    text-align: center; /* Centraliza o texto no plano de preços */
+    padding: 2rem; /* Preenchimento interno do plano */
+}
+
+.pricing .plan.basic {
+    background: linear-gradient(130deg, #111 93%, transparent 90%); /* Gradiente de fundo para o plano básico */
+}
+
+.pricing .plan h3 {
+    font-size: 2.5rem; /* Tamanho da fonte do título do plano */
+    margin: 1rem 0; /* Margem acima e abaixo do título */
+    color: #fff; /* Cor do título do plano */
+}
+
+.pricing .plan .price {
+    font-size: 5rem; /* Tamanho da fonte do preço */
+    font-weight: bolder; /* Negrito para o preço */
+    color: #05ee15; /* Cor do preço */
+}
+
+.pricing .plan .price span {
+    color: #fff; /* Cor do texto adicional ao preço */
+    font-size: 2rem; /* Tamanho da fonte do texto adicional */
+}
+
+.pricing .plan .list {
+    padding: 1rem 0; /* Espaçamento acima e abaixo da lista de preços */
+}
+
+.pricing .plan .list p {
+    line-height: 2; /* Altura da linha do parágrafo */
+    padding: 1rem 0; /* Espaçamento acima e abaixo do parágrafo */
+    font-size: 1.4rem; /* Tamanho da fonte do parágrafo */
+    color: #aaa; /* Cor do texto do parágrafo */
+}
+
+.pricing .plan .list p i {
+    padding-right: 1rem; /* Espaçamento à direita do ícone */
+    color: #05ee15; /* Cor do ícone */
+}
+
+.trainers .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(29rem, 1fr));
+    gap: 1.5rem;
+}
+
+.trainers .box-container .box {
+    height: 40rem;
+    overflow: hidden;
+    position: relative;
+}
+.trainers .box-container .box:hover .content {
+    transform: translateY(0);
+}
+
+.trainers .box-container .box img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.trainers .box-container .box .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #111;
+    padding: 2rem;
+    transform: translateY(6.5rem);
+}
+
+.trainers .box-container .box .content span {
+    font-size: 1.5rem;
+    color: rgb(5, 238, 21);
+}
+
+.trainers .box-container .box .content h3 {
+    font-size: 2rem;
+    color: #fff;
+    padding-top: .5rem;
+}
+.trainers .box-container .box .content .share {
+    padding-top: 2rem;
+    margin-top: 1.5rem;
+    border-top: 0.1rem solid #aaa;
+}
+
+.trainers .box-container .box .content .share a {
+    font-size: 2rem;
+    color: #fff;
+    margin-right: 1.5rem;
+}
+
+.trainers .box-container .box .content .share a:hover {
+    color: rgb(5, 238, 21);
+}
+.banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+    url(img/FITNESS\ CENTER\ _\ GYM.jpeg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+}
+.banner span {
+    font-size: 2rem;
+    color: rgb(5, 238, 21);
+}
+
+.banner h3 {
+    padding-top: 1rem;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+}
+
+.banner p {
+    margin: 1rem auto;
+    max-width: 60rem;
+    font-size: 1.5rem;
+    color: #aaa;
+    line-height: 2;
+}
+.review {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.review .information {
+    flex: 1 1 35rem;
+}
+.review .information span {
+    font-size: 2rem;
+    color: rgb(5, 238, 21);
+}
+
+.review .information h3 {
+    font-size: 3rem;
+    color: #fff;
+    padding-top: 1rem;
+}
+
+.review .information p {
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #aaa;
+    padding: 1rem 0;
+}
+
+.review .review-slider {
+    flex: 1 1 60rem;
+}
+
+.review .review-slider .slide {
+    background: linear-gradient(130deg, #111 93%, transparent 90%);
+    padding: 2rem 3rem;
+}
+
+.review .review-slider .slide p {
+    font-size: 1.5rem;
+    line-height: 2;
+    color: #aaa;
+}
+
+.review .review-slider .slide .user {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.review .review-slider .slide .user img {
+    height: 5rem;
+    width: 5rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.review .review-slider .slide .user h3 {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.review .review-slider .slide .user span {
+    color: rgb(5, 238, 21);
+    font-size: 1.5rem;
+}
+
+.review .review-slider .slide .user i {
+    font-size: 5rem;
+    margin-left: auto;
+    margin-right: 2rem;
+    color: rgb(5, 238, 21);
+}
+
+.blogs .slide {
+    background: #111;
+    margin-bottom: 7rem;
+}
+
+.blogs .slide:hover .image img {
+    transform: scale(1.1);
+}
+
+.blogs .slide .image {
+    height: 25rem;
+    width: 100%;
+    overflow: hidden;
+}
+.blogs .slide .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.blogs .slide .content {
+    padding: 2rem;
+}
+
+.blogs .slide .content .link {
+    padding-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.blogs .slide .content .link a {
+    color: rgb(5, 238, 21);
+}
+
+.blogs .slide .content .link a:hover {
+    color: #fff;
+}
+
+.blogs .slide .content .link span {
+    color: #fff;
+    padding: 0 1rem;
+}
+
+.blogs .slide .content h3 {
+    font-size: 2rem;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.blogs .slide .content p {
+    font-size: 1.5rem;
+    color: #aaa;
+    line-height: 2;
+    padding: 1rem 0;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+    font-size: 2.2rem;
+    color: #fff;
+    padding: 1rem 1rem;
+}
+
+.footer .box-container .box .links {
+    font-size: 1.5rem;
+    display: block;
+    color: #aaa;
+    padding: 1rem 3rem;
+}
+
+.footer .box-container .box .links:hover {
+    color: rgb(5, 238, 21);
+}
+
+.footer .box-container .box p {
+    font-size: 1.5rem;
+    color: #aaa;
+    padding: 1rem 3rem;
+}
+
+.footer .box-container .box p i {
+    padding-right: .5rem;
+    color: rgb(5, 238, 21);
+}
+
+.footer .box-container .box .share {
+    padding: 1rem 3rem;
+}
+
+.footer .box-container .box .share a {
+    height: 4.5rem;
+    width: 4.5rem;
+    line-height: 4.5rem;
+    font-size: 1.7rem;
+    color: #fff;
+    background: #111;
+    border-radius: 50%;
+    margin-right: .5rem;
+    text-align: center;
+}
+
+.footer .box-container .box .share a:hover {
+    background: rgb(5, 238, 21);
+}
+
+.footer .box-container .box form {
+    margin-left: 2rem;
+}
+
+.footer .box-container .box form .email {
+    margin-bottom: 1rem;
+    width: 100%;
+    background: #111;
+    padding: 1.2rem;
+    font-size: 1.5rem;
+    color: #fff;
+    text-transform: none;
+}
+/*Responsividade*/
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+        scroll-padding: 7rem;
+    }
+    .header {
+        padding: 0 2rem;
+    }
+
+    section {
+        padding: 3rem 2rem;
+    }
+
+    .home .slide {
+        padding: 2rem 5%;
+    }
+
+    .home .slide .content {
+        width: 50rem;
+    }
+
+    .home .slide .content h3 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #menu-btn {
+        display: inline-block;
+    }
+
+    #menu-btn.fa-times {
+        transform: rotate(180deg);
+    }
+
+    .header {
+        padding: 2rem;
+    }
+
+    .header .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background: #000;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    .header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .header .navbar a {
+        display: block;
+        font-size: 2rem;
+    }
+
+    .about {
+        gap: 3rem;
+    }
+
+    .about .image {
+        margin-top: 5rem;
+    }
+
+    .about .content .title {
+        font-size: 3rem;
+    }
+
+    .features .box-container .box.second {
+        flex-flow: column;
+    }
+}
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+
+
