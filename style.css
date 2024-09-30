@@ -73,7 +73,7 @@ body{
     width: 100%;
     z-index: 10000;
     color: #05ee15;
-    margin-top: 80px;
+    margin-top: 64px;
     border: 0.5px solid
 }
 
@@ -777,6 +777,10 @@ section {
 @media (max-width: 768px) {
     #menu-btn {
         display: inline-block;
+    }
+
+    .hr{
+        margin-top: 75px;
     }
 
     #menu-btn.fa-times {
